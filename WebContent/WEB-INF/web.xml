@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" 
+             version="2.5" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+             xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <display-name>MP Vagas</display-name>   
+    <servlet>
+        <servlet-name>RestfulApp</servlet-name>
+        <servlet-class>
+            org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
+        </servlet-class>
+        <init-param>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>br.mp.mpes.vagas.RestfulApp</param-value>
+		</init-param>
+    </servlet>
+  <resource-env-ref>
+		<resource-env-ref-name>bean/Security</resource-env-ref-name>
+		<resource-env-ref-type>java.util.Properties</resource-env-ref-type>
+	</resource-env-ref>
+    <servlet-mapping>
+        <servlet-name>RestfulApp</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+</web-app>
